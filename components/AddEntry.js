@@ -6,6 +6,8 @@ import UdaciSteppers from './UdaciSteppers'
 import DateHeader from './DateHeader'
 import {Ionicons} from '@expo/vector-icons'
 import TextButton from './TextButton'
+import { submitEntry, removeEntry } from '../utils/api'
+
 
 function SumbitBtn ({ onPress }) {
     return (
@@ -71,7 +73,9 @@ export default class AddEntry extends Component {
             eat: 0,
         }))
 
-        // Navigate Home
+        // Navigate to Home
+
+        submitEntry({key, entry})
 
         // Clear local notifcation
     }
@@ -83,7 +87,7 @@ export default class AddEntry extends Component {
 
         // Route to Home
 
-        // Update to "DB"
+        removeEntry(key)
     }
 
     render() {
