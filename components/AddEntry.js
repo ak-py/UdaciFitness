@@ -7,7 +7,9 @@ import DateHeader from './DateHeader'
 import {Ionicons} from '@expo/vector-icons'
 import TextButton from './TextButton'
 import { submitEntry, removeEntry } from '../utils/api'
-
+import { connect } from 'react-redux'
+import { addEntry } from '../actions'
+import { getDailyReminderValue } from '../utils/helpers'
 
 function SumbitBtn ({ onPress }) {
     return (
@@ -19,7 +21,7 @@ function SumbitBtn ({ onPress }) {
 }
 
 
-export default class AddEntry extends Component {
+class AddEntry extends Component {
 
     state = {
         run: 0,
@@ -64,6 +66,9 @@ export default class AddEntry extends Component {
         const entry = this.state
 
         // Update Redux
+        this.props.dispatch(addEntry({
+            [key] : entry
+        }))
 
         this.setState(() => ({
             run: 0,
@@ -84,6 +89,10 @@ export default class AddEntry extends Component {
         const key = timeToString()
 
         // Update Redux
+
+        this.props.dispatch(addEntry({
+            [key]: getDailyReminderValue()
+        }))
 
         // Route to Home
 
@@ -142,3 +151,13 @@ export default class AddEntry extends Component {
         )
     }
 }
+
+function mapStateToProps (state) {
+    const key = timeToString()
+
+    return {
+        alreadyLogged: state[key] && typeof state[key].today === 'undefined'
+    }
+}
+
+export default connect(mapStateToProps)(AddEntry)
