@@ -15,15 +15,12 @@ import { white, purple } from '../utils/colors';
 function SumbitBtn ({ onPress }) {
     return (
         <TouchableOpacity
-         style = { Platform.OS === 'ios' ? styles.iosSubmitBtn : styles.androidSubmitBtn
-
-         }
+         style = { Platform.OS === 'ios' ? styles.iosSubmitBtn : styles.androidSubmitBtn }
          onPress={onPress}>
             <Text style={styles.submitBtnText}>SUBMIT</Text>
         </TouchableOpacity>
     )
 }
-
 
 class AddEntry extends Component {
 

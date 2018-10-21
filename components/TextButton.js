@@ -1,6 +1,5 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import {FontAwesome, Entypo} from '@expo/vector-icons'
+import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { purple } from '../utils/colors';
 
 export default function TextButton ({ children, onPress, style = {} }) {
