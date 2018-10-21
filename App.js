@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import reducer from './reducers'
 
 export default class App extends React.Component {
-  
+
   state = {
     value: 0
   }
@@ -14,9 +14,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStore(reducer)} >
-        <View>
-          <Text>-</Text>
-          <Text>-</Text>
+        <View style={{flex: 1}}>
           <AddEntry />
         </View>
       </Provider>
