@@ -89,7 +89,6 @@ class AddEntry extends Component {
         const key = timeToString()
 
         // Update Redux
-
         this.props.dispatch(addEntry({
             [key]: getDailyReminderValue()
         }))

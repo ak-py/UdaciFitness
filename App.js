@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import reducer from './reducers'
 
 export default class App extends React.Component {
+  
   state = {
     value: 0
   }
